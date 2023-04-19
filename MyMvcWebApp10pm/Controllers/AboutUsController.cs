@@ -90,10 +90,91 @@ namespace MyMvcWebApp10pm.Controllers
             return View();
         }
 
+        public ActionResult SendDatausingModel()
+        {
+            EmployeeModel obj = new EmployeeModel();
+            obj.EmpId = 1;
+            obj.EmpName = "Shiva";
+            obj.EmpSalary = 10000;
+
+            return View(obj);
+        }
+
+        public ActionResult SendDatausingListModel()
+        {
+            EmployeeModel obj = new EmployeeModel();
+            obj.EmpId = 1;
+            obj.EmpName = "Shiva";
+            obj.EmpSalary = 10000;
+
+            EmployeeModel obj1 = new EmployeeModel();
+            obj1.EmpId = 2;
+            obj1.EmpName = "chiranjeevi";
+            obj1.EmpSalary = 20000;
+
+
+            EmployeeModel obj2 = new EmployeeModel();
+            obj2.EmpId = 3;
+            obj2.EmpName = "Sabita";
+            obj2.EmpSalary = 30000;
+
+
+            List<EmployeeModel> listObj = new List<EmployeeModel>();
+            listObj.Add(obj);
+            listObj.Add(obj1);
+            listObj.Add(obj2);
 
 
 
 
+            return View(listObj);
+        }
+
+        public ActionResult SendEmpAndDepartmentDataUsingModel()
+        {
+            EmployeeModel obj = new EmployeeModel();
+            obj.EmpId = 1;
+            obj.EmpName = "Shiva";
+            obj.EmpSalary = 10000;
+
+            EmployeeModel obj1 = new EmployeeModel();
+            obj1.EmpId = 2;
+            obj1.EmpName = "chiranjeevi";
+            obj1.EmpSalary = 20000;
+
+
+            EmployeeModel obj2 = new EmployeeModel();
+            obj2.EmpId = 3;
+            obj2.EmpName = "Sabita";
+            obj2.EmpSalary = 30000;
+
+
+            List<EmployeeModel> listObj = new List<EmployeeModel>();
+            listObj.Add(obj);
+            listObj.Add(obj1);
+            listObj.Add(obj2);
+
+
+            ///////////////Department Details
+            DepartmentModel department = new DepartmentModel();
+            department.DeptId = 1211;
+            department.DeptName = "IT";
+
+            DepartmentModel department1 = new DepartmentModel();
+            department1.DeptId = 1212;
+            department1.DeptName = "Marketing";
+
+            List<DepartmentModel> listDept = new List<DepartmentModel>();
+            listDept.Add(department);
+            listDept.Add(department1);
+            //////////////////////////////////////////////////////
+
+            EmpDeptModel empDeptModel = new EmpDeptModel();
+            empDeptModel.listEmp = listObj;
+            empDeptModel.listDept = listDept;
+
+            return View(empDeptModel);
+        }
     }
 }
 

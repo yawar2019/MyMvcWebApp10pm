@@ -1,0 +1,37 @@
+﻿@model  MyMvcWebApp10pm.Models.EmpDeptModel
+@{
+    ViewBag.Title = "SendEmpAndDepartmentDataUsingModel";
+}
+
+<h2>Employee Info</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Salary</th>
+    </tr>
+    @foreach (var item in Model.listEmp)
+    {
+        <tr>
+            <td>@item.EmpId</td>
+            <td>@item.EmpName</td>
+            <td>@item.EmpSalary</td>
+        </tr>
+    }
+</table>
+
+<h2>Department Info</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>id</th>
+        <th>Name</th>
+    </tr>
+    @foreach (var item in Model.listDept)
+    {
+        <tr>
+            <td>@item.DeptId</td>
+            <td>@item.DeptName</td>
+        </tr>
+    }
+</table>
