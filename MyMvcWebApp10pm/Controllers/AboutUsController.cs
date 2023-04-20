@@ -26,7 +26,7 @@ namespace MyMvcWebApp10pm.Controllers
             return "Hello World";
         }
 
-        public ActionResult ContactUS()
+        public ViewResult ContactUS()
         {
             ViewBag.tiger = "Contact to tiger";
             return View();
@@ -37,10 +37,19 @@ namespace MyMvcWebApp10pm.Controllers
             return RedirectToAction("Dashboard", "Default");
         }
 
-
-        public ActionResult SendData()
+        public RedirectResult JumpToGoogle()
         {
-            ViewBag.info = "Hello World";
+            return Redirect("http://www.google.com");
+        }
+
+        public RedirectResult JumpToSendData()
+        {
+            return Redirect("~/AboutUs/SendData?id="+1211);
+        }
+
+        public ActionResult SendData(int id)
+        {
+            ViewBag.info = "Hello World "+id;
             ViewBag.info1 = "Hello World 1";
             return View();
         }
@@ -174,6 +183,20 @@ namespace MyMvcWebApp10pm.Controllers
             empDeptModel.listDept = listDept;
 
             return View(empDeptModel);
+        }
+
+        public FileResult GetMeFile()
+        {
+            return File("~/Web.config","application/xml");
+        }
+        public FileResult GetMePDFFile()
+        {
+            return File("~/ActionResult.pdf", "application/pdf");
+        }
+
+        public FileResult GetMeDownloadPDFFile()
+        {
+            return File("~/ActionResult.pdf", "application/pdf", "ActionResult.pdf");
         }
     }
 }
