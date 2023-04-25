@@ -198,6 +198,42 @@ namespace MyMvcWebApp10pm.Controllers
         {
             return File("~/ActionResult.pdf", "application/pdf", "ActionResult.pdf");
         }
+
+        public JsonResult GetJsonData()
+        {
+
+            EmployeeModel obj = new EmployeeModel();
+            obj.EmpId = 1;
+            obj.EmpName = "Shiva";
+            obj.EmpSalary = 10000;
+
+            EmployeeModel obj1 = new EmployeeModel();
+            obj1.EmpId = 2;
+            obj1.EmpName = "chiranjeevi";
+            obj1.EmpSalary = 20000;
+
+
+            EmployeeModel obj2 = new EmployeeModel();
+            obj2.EmpId = 3;
+            obj2.EmpName = "Sabita";
+            obj2.EmpSalary = 30000;
+
+
+            List<EmployeeModel> listObj = new List<EmployeeModel>();
+            listObj.Add(obj);
+            listObj.Add(obj1);
+            listObj.Add(obj2);
+
+            return Json(listObj, JsonRequestBehavior.AllowGet);
+
+        }
+        public ActionResult DisplayjsonData()
+        {
+
+            return View();
+        
+        }
+
     }
 }
 

@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "DisplayjsonData";
+}
+
+<h2>DisplayjsonData</h2>
+
+
+<table id="example1">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Salary</th>
+    </tr>
+</table>
+<script src="~/Scripts/jquery-1.9.0.min.js"></script>
+
+<script>
+
+    $.ajax({
+
+        url: "https://localhost:44301/AboutUS/GetJsonData",
+        type: "GET",
+        dataType: "json",
+        success: function (result) {
+            $.each(result, function (i, key) {
+
+
+                $("#example1 tr:last").after("<tr><td>" + key.EmpId + "</td><td>" + key.EmpName + "</td><td>" + key.EmpSalary +"</td></tr>")
+
+            })
+        }
+
+
+
+
+    })
+    
+
+</script>

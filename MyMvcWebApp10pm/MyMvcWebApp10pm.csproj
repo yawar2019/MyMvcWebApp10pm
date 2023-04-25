@@ -135,6 +135,7 @@
     <Content Include="Views\AboutUs\SendDatausingModel.cshtml" />
     <Content Include="Views\AboutUs\SendDatausingListModel.cshtml" />
     <Content Include="Views\AboutUs\SendEmpAndDepartmentDataUsingModel.cshtml" />
+    <Content Include="Views\AboutUs\DisplayjsonData.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
