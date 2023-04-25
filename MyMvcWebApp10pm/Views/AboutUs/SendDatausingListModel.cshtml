@@ -5,19 +5,37 @@
 
 <h2>SendDatausingListModel</h2>
 
-<table class="table table-bordered table-responsive">
-    <tr>
-        <th>EmpId</th>
-        <th>EmpName</th>
-        <th>Salary</th>
-    </tr>
-    @foreach (var item in Model)
+@{
+
+    var a = Html.Partial("_myPartialView", Model);
+    int result = 2;
+    if (result == 2)
     {
-        <tr>
-            <td>@item.EmpId</td>
-            <td>@item.EmpName</td>
-            <td>@item.EmpSalary</td>
-        </tr>
+        @a
+    }
+    else
+    {
+        <p>no result</p>
     }
 
-</table>
+}
+
+
+
+@{
+    Html.RenderPartial("_myPartialView", Model);
+}
+
+
+@* 
+    
+    Render partial is faster
+    it return void
+
+
+    Partial view will return Html Encoded string
+    it is somewhat slower then Rder Partial Method 
+
+
+
+*@

@@ -136,6 +136,7 @@
     <Content Include="Views\AboutUs\SendDatausingListModel.cshtml" />
     <Content Include="Views\AboutUs\SendEmpAndDepartmentDataUsingModel.cshtml" />
     <Content Include="Views\AboutUs\DisplayjsonData.cshtml" />
+    <Content Include="Views\Shared\_myPartialView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

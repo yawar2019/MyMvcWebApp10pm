@@ -234,6 +234,50 @@ namespace MyMvcWebApp10pm.Controllers
         
         }
 
+
+        public PartialViewResult SendPartialDataToListModel()
+        {
+            EmployeeModel obj = new EmployeeModel();
+            obj.EmpId = 1;
+            obj.EmpName = "Shiva";
+            obj.EmpSalary = 10000;
+
+            EmployeeModel obj1 = new EmployeeModel();
+            obj1.EmpId = 2;
+            obj1.EmpName = "chiranjeevi";
+            obj1.EmpSalary = 20000;
+
+
+            EmployeeModel obj2 = new EmployeeModel();
+            obj2.EmpId = 3;
+            obj2.EmpName = "Sabita";
+            obj2.EmpSalary = 30000;
+
+
+            List<EmployeeModel> listObj = new List<EmployeeModel>();
+            listObj.Add(obj);
+            listObj.Add(obj1);
+            listObj.Add(obj2);
+
+
+
+
+            return PartialView("_myPartialView",listObj);
+        }
+
+        public ContentResult GetReturnContent()
+        {
+            return Content("Text Contents");
+        }
+        public ContentResult GetReturnContent2()
+        {
+            return Content("<p style='color:red'>Text Contents</p>");
+        }
+        public ContentResult GetReturnContent3()
+        {
+            return Content("<script>alert('Text Contents')</script>");
+        }
+
     }
 }
 

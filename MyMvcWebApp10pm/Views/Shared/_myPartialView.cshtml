@@ -1,0 +1,16 @@
+﻿<table class="table table-bordered table-responsive">
+    <tr>
+        <th>EmpId</th>
+        <th>EmpName</th>
+        <th>Salary</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.EmpId</td>
+            <td>@item.EmpName</td>
+            <td>@item.EmpSalary</td>
+        </tr>
+    }
+
+</table>
