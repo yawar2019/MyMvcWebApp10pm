@@ -1,8 +1,22 @@
-﻿
+﻿@model List<MyMvcWebApp10pm.Models.EmployeeModel>
 @{
     ViewBag.Title = "Dashboard";
 }
 
 <h2>Dashboard</h2>
 
-@ViewBag.tiger
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Salary</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.EmpId</td>
+    <td>@item.EmpName</td>
+    <td>@item.EmpSalary</td>
+</tr>
+    }
+</table>

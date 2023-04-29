@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyMvcWebApp10pm.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,10 +10,11 @@ namespace MyMvcWebApp10pm.Controllers
     public class DefaultController : Controller
     {
         // GET: Default
+        EmployeeContext db = new EmployeeContext();
         public ActionResult Dashboard()
         {
-            ViewBag.tiger = "Dashboard Page is Called";
-            return View();
+          
+            return View(db.employeeModels.ToList());
         }
     }
 }
