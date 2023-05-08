@@ -51,6 +51,8 @@
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -106,7 +108,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="ActionResult.pdf" />
+    <EntityDeploy Include="Models\EmployeeDropDownModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EmployeeDropDownModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EmployeeDropDownModel.edmx.diagram">
+      <DependentUpon>EmployeeDropDownModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.9.0.intellisense.js" />
+    <Content Include="Models\EmployeeDropDownModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EmployeeDropDownModel.edmx</DependentUpon>
+      <LastGenOutput>EmployeeDropDownModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EmployeeDropDownModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EmployeeDropDownModel.edmx</DependentUpon>
+      <LastGenOutput>EmployeeDropDownModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.0.js" />
@@ -120,10 +139,31 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>EmployeeDropDownModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Models\EmpDeptModel.cs" />
     <Compile Include="Models\EmployeeContext.cs" />
+    <Compile Include="Models\EmployeeDropDownModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeDropDownModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeeDropDownModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeDropDownModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeeDropDownModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeDropDownModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\EmployeeModel.cs" />
+    <Compile Include="Models\StudentDetail.cs">
+      <DependentUpon>EmployeeDropDownModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +187,8 @@
     <Content Include="Views\Shared\_myPartialView.cshtml" />
     <Content Include="Views\Default\Create.cshtml" />
     <Content Include="Views\Default\Edit.cshtml" />
+    <Content Include="Views\Default\Delete.cshtml" />
+    <Content Include="Views\Default\TestHtmlHelper.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -156,6 +198,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

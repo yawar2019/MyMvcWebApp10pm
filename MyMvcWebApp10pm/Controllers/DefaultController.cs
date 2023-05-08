@@ -75,5 +75,38 @@ namespace MyMvcWebApp10pm.Controllers
 
         }
 
+        public ActionResult Delete(int? id)
+        {
+            EmployeeModel emp = db.employeeModels.Find(id);
+            return View(emp);
+        }
+        [HttpPost]
+        [ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int? id)
+        {
+            EmployeeModel emp = db.employeeModels.Find(id);
+            db.employeeModels.Remove(emp);//
+            int result = db.SaveChanges();
+
+
+            if (result > 0)
+            {
+                return RedirectToAction("Dashboard");
+            }
+            else
+            {
+                return View();
+            }
+
+            return View(emp);
+        }
+        EmployeeEntities db1 = new EmployeeEntities();
+        public ActionResult TestHtmlHelper()
+        {
+            ViewBag.Customers = new SelectList(db1.StudentDetails, "StudId", "StudName");
+
+            return View();
+
+        }
     }
 }

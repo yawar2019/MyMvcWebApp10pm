@@ -17,7 +17,7 @@ namespace DataFirstApproach.Controllers
         // GET: employeeDetails
         public ActionResult Index()
         {
-            return View(db.employeeDetails.ToList());
+            return View(db.sp_employee());
         }
 
         // GET: employeeDetails/Details/5
@@ -50,8 +50,9 @@ namespace DataFirstApproach.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.employeeDetails.Add(employeeDetail);
-                db.SaveChanges();
+                //db.employeeDetails.Add(employeeDetail);
+                //db.SaveChanges();
+                db.sp_CreateEmployee(employeeDetail.EmpName, employeeDetail.EmpSalary);
                 return RedirectToAction("Index");
             }
 

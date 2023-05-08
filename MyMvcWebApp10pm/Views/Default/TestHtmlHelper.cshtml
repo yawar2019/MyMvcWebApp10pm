@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "TestHtmlHelper";
+}
+
+<h2>TestHtmlHelper</h2>
+
+<input type="text" name="SurName" id="SurName" style="color:indianred" onclick="fun()" />
+<br />
+@Html.TextBox("FirstNames", null, new { @placeholder = "Enter Name", @id = "fsName", @style = "color:skyblue;background-color:green", @onclick = "fun()" })
+<br />
+@Html.Password("Pwd", "12345")
+<br />
+@Html.RadioButton("Gender", "Male", true)<span>Male</span>
+@Html.RadioButton("Gender", "FeMale")<span>Female</span>
+
+
+@Html.DropDownList("Country", new List<SelectListItem>() {
+new SelectListItem{Text="India",Value="1"},
+new SelectListItem{Text="Bangladesh",Value="2"},
+new SelectListItem{Text="China",Value="3",Selected=true},
+new SelectListItem{Text="Japan",Value="4"},
+
+
+}, "Select Country")
+
+
+@Html.DropDownList("Customers")
+
+
+<br />
+
+@Html.CheckBox("DotNet",true)<span>DotNet</span>
+@Html.CheckBox("Java")<span>Java</span>
+<br />
+
+@Html.TextArea("Address",null,5,10,null)
+
+
+<script>
+    function fun() {
+        alert('hello');
+    }
+</script>
