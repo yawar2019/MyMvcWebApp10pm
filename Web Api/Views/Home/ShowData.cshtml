@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "ShowData";
+}
+
+<h2>ShowData</h2>
+
+<table id="table1" class="table table-bordered">
+    <tr>
+        <th>EmpId</th>
+        <th>Name</th>
+        <th>Salary</th>
+    </tr>
+</table>
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<script>
+    $.ajax(
+        {
+            url: "https://localhost:44397/api/employeeDetailsApi",
+            type: "GET",
+            dataType: "json",
+            success: function (result) {
+                $.each(result,
+                    function (i, key) {
+                        $('#table1 tr:last').after("<tr><td>" + key.EmpId + "</td><td>" + key.EmpName + "</td><td>" + key.EmpSalary +"</td></tr>");
+
+                    })
+            }
+            }
+      
+
+    )
+</script>

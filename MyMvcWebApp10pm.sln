@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyMvcWebApp10pm", "MyMvcWeb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataFirstApproach", "DataFirstApproach\DataFirstApproach.csproj", "{068817A3-1606-483A-8B97-7F791EFD44EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web Api", "Web Api\Web Api.csproj", "{A37D1E9D-C878-467E-8187-6F1928175DE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseFrstApproach2", "DataBaseFrstApproach2\DataBaseFrstApproach2.csproj", "{D4D38818-769E-4D4B-8EC4-1B834C8FAE40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{068817A3-1606-483A-8B97-7F791EFD44EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{068817A3-1606-483A-8B97-7F791EFD44EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{068817A3-1606-483A-8B97-7F791EFD44EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A37D1E9D-C878-467E-8187-6F1928175DE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A37D1E9D-C878-467E-8187-6F1928175DE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A37D1E9D-C878-467E-8187-6F1928175DE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A37D1E9D-C878-467E-8187-6F1928175DE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4D38818-769E-4D4B-8EC4-1B834C8FAE40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4D38818-769E-4D4B-8EC4-1B834C8FAE40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4D38818-769E-4D4B-8EC4-1B834C8FAE40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4D38818-769E-4D4B-8EC4-1B834C8FAE40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

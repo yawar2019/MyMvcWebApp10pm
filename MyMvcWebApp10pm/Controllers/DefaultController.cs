@@ -108,5 +108,62 @@ namespace MyMvcWebApp10pm.Controllers
             return View();
 
         }
+        [HttpPost]
+        public ActionResult TestHtmlHelper(RegistrationModel model)
+        {
+            ViewBag.Customers = new SelectList(db1.StudentDetails, "StudId", "StudName");
+
+            return View();
+
+        }
+
+        public ActionResult ValidationExample()
+        {
+            
+
+            return View();
+
+        }
+        [HttpPost]
+        public ActionResult ValidationExample(RegistrationModel reg)
+        {
+
+            if(ModelState.IsValid)
+            {
+
+            }
+            else
+            {
+
+            }
+            return View(reg);
+
+        }
+
+        public ActionResult TempdataExample()
+        {
+            ViewBag.info = 1;
+            ViewData["testInfo"] = 2;
+            TempData["TestTempDatainfo"] = 3;
+
+
+            return RedirectToAction("TempdataExample2");
+        }
+        public ActionResult TempdataExample2()
+        {
+            string a, b, c;
+            a = ViewBag.info;
+            b = Convert.ToString(ViewData["testInfo"]);
+            //c = Convert.ToString(TempData["TestTempDatainfo"]);//keep   and peek
+            //TempData.Keep();
+            c = Convert.ToString(TempData.Peek("TestTempDatainfo"));//keep   and peek
+
+
+            ViewBag.data = c;
+            return View();
+        }
+
+
+
     }
 }

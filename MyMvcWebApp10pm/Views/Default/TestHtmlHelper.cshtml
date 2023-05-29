@@ -1,42 +1,48 @@
-﻿
+﻿@model  MyMvcWebApp10pm.Models.RegistrationModel
 @{
     ViewBag.Title = "TestHtmlHelper";
 }
 
 <h2>TestHtmlHelper</h2>
+@using (Html.BeginForm("TestHtmlHelper", "Default", FormMethod.Post))
+{
+    <input type="text" name="SurName" id="SurName" style="color:indianred" onclick="fun()" />
+    <br />
+    @*@Html.TextBox("FirstName", null, new { @placeholder = "Enter Name", @id = "fsName", @style = "color:skyblue;background-color:green", @onclick = "fun()" })*@
+    <br />
+    @*@Html.TextBoxFor(ab => ab.FirstName, null, new { @placeholder = "Enter Name", @id = "fsName", @style = "color:skyblue;background-color:green", @onclick = "fun()" })*@
+    <br />
+    @Html.EditorFor(ab => ab.FirstName, null, new { @placeholder = "Enter Name", @id = "fsName", @style = "color:skyblue;background-color:green", @onclick = "fun()" })
 
-<input type="text" name="SurName" id="SurName" style="color:indianred" onclick="fun()" />
-<br />
-@Html.TextBox("FirstNames", null, new { @placeholder = "Enter Name", @id = "fsName", @style = "color:skyblue;background-color:green", @onclick = "fun()" })
-<br />
-@Html.Password("Pwd", "12345")
-<br />
-@Html.RadioButton("Gender", "Male", true)<span>Male</span>
-@Html.RadioButton("Gender", "FeMale")<span>Female</span>
-
-
-@Html.DropDownList("Country", new List<SelectListItem>() {
-new SelectListItem{Text="India",Value="1"},
-new SelectListItem{Text="Bangladesh",Value="2"},
-new SelectListItem{Text="China",Value="3",Selected=true},
-new SelectListItem{Text="Japan",Value="4"},
+    @Html.Password("Pwd", "12345")
+    <br />
+    @Html.RadioButton("Gender", "Male", true)<span>Male</span>
+    @Html.RadioButton("Gender", "FeMale")<span>Female</span>
 
 
-}, "Select Country")
+    @*@Html.DropDownList("Country", new List<SelectListItem>() {
+        new SelectListItem{Text="India",Value="1"},
+        new SelectListItem{Text="Bangladesh",Value="2"},
+        new SelectListItem{Text="China",Value="3",Selected=true},
+        new SelectListItem{Text="Japan",Value="4"},*@
 
 
-@Html.DropDownList("Customers")
+    //}, "Select Country")
 
 
-<br />
+    @*@Html.DropDownList("Customers")*@
+    @Html.DropDownListFor(x => x.Customers, (IEnumerable<SelectListItem>)ViewBag.Customers)
 
-@Html.CheckBox("DotNet",true)<span>DotNet</span>
-@Html.CheckBox("Java")<span>Java</span>
-<br />
+    <br />
 
-@Html.TextArea("Address",null,5,10,null)
+    @Html.CheckBox("DotNet", true, new { @name = "Course" })<span>DotNet</span>
+    @Html.CheckBox("Java", false, new { @name = "Course" })<span>Java</span>
+    <br />
 
+    @Html.TextArea("Address", null, 5, 10, null)
+    <input type="submit" value="save" class="btn btn-success" />
 
+}
 <script>
     function fun() {
         alert('hello');

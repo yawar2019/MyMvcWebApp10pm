@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<h2>@ViewBag.Message</h2>
+<p>
+    To learn more about ASP.NET MVC visit ASP.NET MVC Website
+</p>
+<br />
+@using (Html.BeginForm("ConvertThisPageToPdf", "PDFTest", FormMethod.Post, new { id = "convertForm" }))
+{
+    <div id="convertThisPageButtonDiv">
+        <input type="submit" value="Convert
+                        This Page To PDF" />
+    </div>
+}
+<br />
+@using (Html.BeginForm("ConvertAboutPageToPdf", "PDFTest", FormMethod.Post, new { id = "convertForm" }))
+{
+    <div id="convertAboutPageButtonDiv">
+        <input type="submit" value="Convert
+                        About Page To PDF" />
+    </div>
+}
+<br />
+<br />
+<h1>
+    @Session["MySessionVariable"].ToString()
+</h1>
+<br />
+<br />
+<img alt=""
+     style="height: 100px"
+     src="/Images/banner.png" />
+
+
+Source Code Example - Index View MVC Code
+
+<%@@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+    Home Page
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <h2>
+        <%: (String)ViewBag.Message %>
+    </h2>
+    <p>
+        To learn more about ASP.NET MVC visit ASP.NET MVC Website
+    </p>
+    <br />
+    <form action="/PDFTest/ConvertThisPageToPdf" id="convertThisPageForm" method="post">
+        <div id="convertThisPageButtonDiv">
+            <input type="submit" value="Convert
+                        This Page To PDF" />
+        </div>
+    </form>
+    <br />
+    <form action="/PDFTest/ConvertAboutPageToPdf" id="convertAboutPageForm"
+          method="post">
+        <div id="convertAboutPageButtonDiv">
+            <input type="submit" value="Convert
+                        About Page To PDF" />
+        </div>
+    </form>
+    <br />
+    <br />
+   
+    <br />
+    <br />
